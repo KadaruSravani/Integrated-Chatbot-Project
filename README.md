@@ -1,6 +1,4 @@
-# Chat
-
-bot Integration Project
+# Chatbot Integration Project
 
 ## Overview
 This project is a chatbot integration setup that allows users to create and manage a chatbot for their company. It includes a user registration system, company setup, and chatbot testing functionalities.
