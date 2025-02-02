@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeyondChats Setup - Verification</title>
+    <link rel="stylesheet" href="maincss.css">
+    <style>
+    .container {
+    display: flex;
+    margin:50px 0 50px 0;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    margin-left: 350px; /* Center vertically */
+ /* Full viewport height */
+
+}
+        #verification-code {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}   
+
+/* Center the button */
+#verify-code {
+    display: block; /* Ensures it takes full width */
+    margin: 10px auto; /* Centers horizontally */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#verify-code:hover {
+    background-color: #0056b3;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="verification-form">
+            <h2>Email Verification</h2>
+            <p>A verification code has been sent to your email. Please enter it below:</p>
+            <input type="text" id="verification-code" placeholder="Enter verification code" required>
+            <button id="verify-code">Verify Code</button>
+            <p id="error-message" class="hidden"></p>
+        </div>
+    </div>
+
+    <script>
+
+        var modal = document.getElementById('id01');
+        let generatedCode = Math.floor(100000 + Math.random() * 900000); // Generate a random 6-digit code
+        alert(`Your verification code is: ${generatedCode}`); // Simulate sending the code
+
+        document.getElementById("verify-code").addEventListener("click", function() {
+            const userCode = document.getElementById("verification-code").value;
+            if (userCode == generatedCode) {
+                alert("Verification successful!");
+                window.location.href = "org_html.html"; // Redirect to the next page after successful verification
+            } else {
+                alert("Invalid verification code. Try again.");
+            }
+        });
+    </script>
+</body>
+</html>

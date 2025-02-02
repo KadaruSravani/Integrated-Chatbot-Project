@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="maincss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <title>Sign Up</title>
+</head>
+<body>
+    <h2>Registration</h2>
+    <div class="container">
+        <form id="registration-form"></form>
+        <form id="signupForm" action="org_html.html" method="GET">
+            <div class="input-container"><i class="fa fa-user icon"></i><input type="text" id="name" placeholder="Username" required></div>
+            <div class="input-container"><i class="fa fa-envelope icon"></i><input type="email" id="email" placeholder="Email" required></div>
+                <div class="input-container"><i class="fa fa-key icon"></i><input type="password" id="password" placeholder="Password" required></div>
+                    <label>
+                       <input type="checkbox" checked="checked" name="remember" > Remember me
+                    </label>
+                     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+            <button type="submit" class="button">Sign Up</button>
+    </div>
+    <div class="container">
+        <a href="#" class="google btn" id="send-code">
+            <i class="fa fa-google fa-fw"></i> Login with Google
+        </a>
+      </div>
+    </div>
+    </form>
+</form>
+</div>
+<video autoplay muted loop id="myVideo">
+<source src=" E:\ASSESSMENT\images\pink.mp4" type="video/mp4">
+</video>
+
+<script>
+    function checkFields() {
+       let fields = document.querySelectorAll("input");
+       for (let field of fields) {
+           if (!field.value.trim()) return field.focus();
+       }
+       window.location.href = "org_html.html";
+   }
+   var video = document.getElementById("myVideo");
+   document.getElementById("send-code").addEventListener("click", function() {
+       const email = document.getElementById("email").value;
+       if (!email.includes("@")) {
+           alert("Please enter a valid email.");
+           return;
+       }
+       window.location.href = `verification.html?email=${encodeURIComponent(email)}`;
+   });
+   var modal = document.getElementById('id01');
+       window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+                  }
+               }
+
+</script>
+
+</body>
+</html>

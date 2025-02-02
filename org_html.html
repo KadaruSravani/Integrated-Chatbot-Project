@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Chatbot Setup</title>
+    <link rel="stylesheet" href="org_css.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="company-info-form">
+            <h2>Set Up Your Company</h2>
+            <div class="form-group">
+                <label for="company-name">Company Name</label>
+                <input type="text" id="company-name" placeholder="Enter your company name"  />
+            </div>
+            <div class="form-group">
+                <label for="company-website">Company Website URL</label>
+                <input type="url" id="company-website" placeholder="Enter your company website URL" oninput="fetchMetaDescription()" />
+            </div>
+            <div class="form-group">
+                <label for="company-description">Company Description (Optional)</label>
+                <textarea id="company-description" placeholder="Your company description will appear here."></textarea>
+            </div>
+            <button class="submit-button"  id="submit-button"onclick="submitCompanyInfo()">Submit</button><br>
+        </div>
+        <div class="webpage-status" id="webpage-status" style="display: none;">
+            <h3>Webpages Detected</h3>
+            <ul id="webpage-list"></ul>
+        </div>
+        <div class="modal" id="data-modal">
+            <div class="modal-content">
+                <h3>Scraped Data</h3><br>
+                <p id="scraped-data"></p><br>
+                <button class="close-button" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+        <div class="training-status" id="training-status">
+            <h3>Chatbot Training</h3>
+            <div class="progress-bar">
+                <div class="progress" id="training-progress"></div>
+            </div>
+            <p id="training-status-text">Training in progress...</p>
+
+            <div class="action-buttons">
+                <button id="wait-button" onclick="waitForTraining()">Wait for Training to Finish</button>
+                <button id="next-step-button" onclick="moveToNextStep()">Move to Next Step</button>
+            </div>
+        </div>
+
+    </div>
+    <video autoplay muted loop id="myVideo">
+        <source src="E:\ASSESSMENT\images\front.mp4" type="video/mp4">
+        </video>
+        
+
+    <script src="org_js.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Setup</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <iframe src="chatbot.html" width="350" height="500" style="border: none; position: fixed; bottom: 20px; right: 20px;"></iframe>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        #upper {
+            background: #ff9800;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        #upper a {
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            position: center;
+            margin-top: 20%;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .success-message, .error-message {
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: none;
+        }
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #eee;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        #myVideo {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: cover;
+        z-index: -1;
+      }
+    .video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(248, 248, 248, 0.4);
+        z-index: 0;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="upper">
+            Chatbot not working as intended? <a id="feedback-link">Share feedback</a>
+        </div>
+        <div class="card">
+            <h2>Chatbot Integration & Testing</h2>
+            <button onclick="testChatbot()">Test Chatbot</button>
+            <button onclick="mailInstructions()">Mail Instructions to Developer</button>
+            <button onclick="testIntegration()">Test Integration</button>
+        </div>
+        <div id="integration-success" class="success-message">
+            🎉 Integration Successful!
+            <button onclick="exploreAdmin()">Explore Admin Panel</button>
+            <button onclick="startChat()">Start Talking to Your Chatbot</button>
+        </div>
+        <div id="integration-failed" class="error-message">
+            ❌ Integration Not Detected. Please check your installation.
+        </div>
+        <video autoplay muted loop id="myVideo">
+            <source src="E:\ASSESSMENT\images\digital chart.mp4" type="video/mp4">
+            </video>
+
+    </div>
+
+    <script>
+        var video = document.getElementById("myVideo");
+         document.getElementById("feedback-link").addEventListener("click", function () {
+            alert("Redirecting to feedback form...");
+            window.location.href = "https://feedback-form.com";
+        });
+        function testChatbot() {
+            window.open("chatbot.html", "_blank");
+        }
+        function mailInstructions() {
+            alert("Integration instructions sent to your developer!");
+        }
+
+        function testIntegration() {
+            if (Math.random() > 0.5) {
+                document.getElementById("integration-success").style.display = "block";
+                document.getElementById("integration-failed").style.display = "none";
+                confetti();
+            } else {
+                document.getElementById("integration-failed").style.display = "block";
+                document.getElementById("integration-success").style.display = "none";
+            }
+        }
+
+        function exploreAdmin() {
+            window.open("https://beyondchats.com/features/", "_blank");
+        }
+
+        function startChat() {
+            window.location.href = "chatbot.html";
+        }
+    </script>
+</body>
+</html>
