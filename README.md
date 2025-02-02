@@ -29,5 +29,11 @@ MultipleFiles/
 ├── signup.html          # User registration page
 ├── third.html           # Chatbot testing page
 └── verification.html     # Email verification page
+
+
+Deployment Link: https://kadarusravani.github.io/Integrated-Chatbot-Project/
+
+
 for any queries contact me
 K.Sravani -- sravanikadaru99@gmail.com
+
